@@ -1,0 +1,17 @@
+@import "7.css/dist/7.css";
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50px;
+}
+.mt-2 {
+    margin-top: 20px !important;
+}
+.text-center {
+    align-items: center;
+}
+.error {
+    color:red;
+}
