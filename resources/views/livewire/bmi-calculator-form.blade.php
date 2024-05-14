@@ -15,8 +15,8 @@
         @enderror
     </div>
     <div class="field-row-stacked mt-2 " style="width: 200px">
-        <button type="submit">Find My BMI</button>
-        <button type="button" wire:click="resetForm">Reset</button>
+        <button type="submit" wire:loading.attr='disabled'>Find My BMI</button>
+        <button type="button" wire:click="resetForm" wire:loading.attr='disabled'>Reset</button>
     </div>
     @if ($bmi_category)
         <div role="tooltip">

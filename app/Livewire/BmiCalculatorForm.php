@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+// use Native\Laravel\Facades\Notification;
 
 class BmiCalculatorForm extends Component
 {
@@ -28,6 +29,10 @@ class BmiCalculatorForm extends Component
         $this->suggestion = $this->bmi_category == 'Underweight' ? 'Increase your weight' : ($this->bmi_category == 'Normal' ? 'You are in the normal weight range' : ($this->bmi_category == 'Overweight' ? 'Reduce your weight' : 'Reduce your weight'));
         $this->dispatch('bmiCalculated');
         $this->reset(["height", "weight"]);
+        // Notification::title('Hello from NativePHP')
+        //     ->message('This is a detail message coming from your Laravel app.')
+        //     // ->event(\App\Events\MyNotificationEvent::class)
+        //     ->show();
     }
     protected function rules()
     {

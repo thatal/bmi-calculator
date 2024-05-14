@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Native\Laravel\Facades\Window;
 use Native\Laravel\Contracts\ProvidesPhpIni;
+use Native\Laravel\Facades\MenuBar;
+use Native\Laravel\Menu\Menu;
 
 class NativeAppServiceProvider implements ProvidesPhpIni
 {
@@ -13,7 +15,40 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function boot(): void
     {
-        Window::open();
+        Menu::new()
+            // ->appMenu()
+            ->submenu('Application', Menu::new()
+                ->quit()
+            )
+            ->submenu('About', Menu::new()
+                ->link('https://github.com/thatal', 'Author')
+            )
+            ->register();
+        Window::open()
+            ->showDevTools(false)
+            ->width(400)
+            ->height(600)
+            ->resizable(false)
+            // ->movable(false)
+            // ->minimizable(false)
+            ->maximizable(false)
+            // ->closable(false)
+            ->backgroundColor('#00000050')
+            // ->hideMenu()
+            ;
+        // MenuBar::create()
+        //     ->label('Status Online')
+        //     // ->showDockIcon()
+        //     ->withContextMenu(
+        //         Menu::new()
+        //             ->label('BMI Calculator')
+        //             ->separator()
+        //             ->link('https://nativephp.com', 'Learn more…')
+        //             ->separator()
+        //             ->quit()
+
+        //     )
+        //     ;
     }
 
     /**
@@ -21,7 +56,6 @@ class NativeAppServiceProvider implements ProvidesPhpIni
      */
     public function phpIni(): array
     {
-        return [
-        ];
+        return [];
     }
 }
